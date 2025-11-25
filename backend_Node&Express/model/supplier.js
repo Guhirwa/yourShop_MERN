@@ -6,7 +6,8 @@ const supplierSchema = new Schema({
         type: String,
         required: true,
         trim: true,
-        maxlength: 5
+        maxlength: 5,
+        unique: true
     },
     name: {
         type: String,
@@ -17,19 +18,21 @@ const supplierSchema = new Schema({
     email: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     phone: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        unique: true
     },
     location: {
         type: Schema.Types.ObjectId, ref: 'Location',
         required: true,
         trim: true
     }
-});
+}, { timestamps: true });
 
 const Supplier = mongoose.model('Supplier', supplierSchema);
 

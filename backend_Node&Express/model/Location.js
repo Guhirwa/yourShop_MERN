@@ -6,7 +6,8 @@ const locationSchema = new Schema({
         type: String, 
         trim: true, 
         required: true, 
-        maxlength:10 
+        maxlength:10,
+        unique: true
     },
     name: { 
         type: String, 
@@ -23,7 +24,7 @@ const locationSchema = new Schema({
         type: Schema.Types.ObjectId, ref: 'Location',
         default: null,
     }
-});
+}, { timestamps: true });
 
 const Location = mongoose.model('Location', locationSchema);
 
